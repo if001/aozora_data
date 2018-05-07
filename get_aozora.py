@@ -17,7 +17,7 @@ def get_body(url):
         print(">>>> get body : ",url)
         return response.read().decode('utf-8')
     except:
-        print(" ----- html error cood",url)
+        print(" ----- html error code",url)
         return ""
 
 
