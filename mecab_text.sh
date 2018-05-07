@@ -9,7 +9,12 @@ for file in $files
 do
     echo $file
     nkf -w $file > "utf8_"$file
-    mecab -Owakati "utf8_"$file -o "re_"$file -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd
+    neologd_path="/usr/local/lib/mecab/dic/mecab-ipadic-neologd"
+    if [ -e ${neologd_pathme} ]; then
+	mecab -Owakati "utf8_"$file -o "re_"$file -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd
+    else
+	mecab -Owakati "utf8_"$file -o "re_"$file
+    fi
     rm "utf8_"$file
     rm $file
 done
