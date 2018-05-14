@@ -2,16 +2,18 @@
 ##
 #青空文庫から取ってきたテキストファイルを全て連結
 ##
-error(){
-    if [ $? -ne 0 ]; then
-	echo "get_aozora.py error"
-	exit 1
-    fi
-}
+if [ $# -eq 3 ]; then
+    in_prefix=$1
+    out_prefix=$2
+    save=$3
+else
+    echo "bud argument"
+    exit 1
+fi
 
-fname=$1
-
-files=`ls | grep re_re_.*.txt`
-cat $files > files_all_${fname}.txt
-mv files_all_${fname}.txt ./files
+files=`ls | grep ^\${in_prefix}.*\.txt`
+fname=${out_prefix}${save}.txt
+echo $files
+cat $files > ${fname}
+mv ${fname} ./files/${fname}
 exit 0
