@@ -21,12 +21,12 @@ fi
 authorId=$1
 savefile=$2
 
-# echo "start get_aozora.py"
-# python3 get_aozora.py -i $1 -e 57226 57227 57165 57230 57105
-# if [ $? -ne 0 ]; then
-#     echo "get_aozora.py error"
-#     exit 1
-# fi
+echo "start get_aozora.py"
+python3 get_aozora.py -i $1 -e 57226 57227 57165 57230 57105
+if [ $? -ne 0 ]; then
+    echo "get_aozora.py error"
+    exit 1
+fi
 
 echo "start unzip_somefile.sh"
 ./unzip_somefile.sh
