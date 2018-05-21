@@ -144,7 +144,7 @@ class File():
                 if (self.checkline(line) == 0):
                     line = self.rm_between(line)
                     line = self.del_word(line)
-                    line = self.add_token(line)
+                    # line = self.add_token(line)
                     line = self.add_end(line)
                     self.getlines.append(line)
 
